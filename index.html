@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday 🎂</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a18cd1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: auto;
+            color: white;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 700px;
+            padding: 30px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 25px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .joke {
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 15px 20px;
+    border-radius: 12px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+        h1 {
+            font-size: 50px;
+            margin: 10px 0;
+            animation: glow 2s infinite alternate;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .photo {
+            width: 230px;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 7px solid white;
+            box-shadow: 0 0 30px rgba(255,255,255,0.8);
+            animation: photoGlow 2s infinite alternate;
+        }
+
+        .message {
+            font-size: 20px;
+            line-height: 1.6;
+            margin: 25px auto;
+            max-width: 600px;
+        }
+
+        .button {
+            border: none;
+            padding: 14px 25px;
+            margin: 8px;
+            border-radius: 30px;
+            font-size: 17px;
+            cursor: pointer;
+            background: white;
+            color: #d63384;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: scale(1.08);
+            background: #ffe6f0;
+        }
+
+        /* BALLOONS */
+
+        .balloon {
+            position: absolute;
+            bottom: -150px;
+            width: 70px;
+            height: 90px;
+            border-radius: 50%;
+            animation: float 10s linear infinite;
+            z-index: 1;
+        }
+
+        .balloon::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 120px;
+            background: white;
+            top: 85px;
+            left: 35px;
+        }
+
+        .balloon1 {
+            left: 5%;
+            background: #ff4d6d;
+            animation-delay: 0s;
+        }
+
+        .balloon2 {
+            left: 20%;
+            background: #4dabf7;
+            animation-delay: 2s;
+        }
+
+        .balloon3 {
+            left: 75%;
+            background: #ffd43b;
+            animation-delay: 1s;
+        }
+
+        .balloon4 {
+            left: 90%;
+            background: #69db7c;
+            animation-delay: 3s;
+        }
+
+        .balloon5 {
+            left: 45%;
+            background: #cc5de8;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(-5deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-120vh) rotate(10deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px white;
+            }
+
+            to {
+                text-shadow: 0 0 30px #fff, 0 0 50px #ff69b4;
+            }
+        }
+
+        @keyframes photoGlow {
+            from {
+                box-shadow: 0 0 15px white;
+            }
+
+            to {
+                box-shadow: 0 0 40px white, 0 0 60px #ff69b4;
+            }
+        }
+
+        /* FIREWORKS */
+
+        .firework {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: white;
+            animation: explode 1s ease-out forwards;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(30);
+                opacity: 0;
+            }
+        }
+
+        .signature {
+            margin-top: 20px;
+            font-style: italic;
+            font-size: 18px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            .photo {
+                width: 180px;
+                height: 180px;
+            }
+
+            .message {
+                font-size: 17px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BALLOONS -->
+
+    <div class="balloon balloon1"></div>
+    <div class="balloon balloon2"></div>
+    <div class="balloon balloon3"></div>
+    <div class="balloon balloon4"></div>
+    <div class="balloon balloon5"></div>
+
+
+    <!-- MAIN BIRTHDAY CARD -->
+
+    <div class="container">
+
+        <h1>🎉 Happy Birthday! 🎉</h1>
+
+        <h2>🥳 Today is your special day! 🥳</h2>
+
+        <!-- YOUR PICTURE -->
+        <div class="gallery">
+
+    <div class="photo-card">
+        <img src="Habibi.jpg.jpeg" alt="Birthday person" class="photo">
+        <p class="caption">You light up every room you walk into ✨</p>
+    </div>
+
+    <div class="photo-card">
+        <img src="Alby.jpg.jpeg" alt="Birthday person 2" class="photo">
+        <p class="caption">So many memories, so much more to come 🎉</p>
+    </div>
+
+    <div class="photo-card">
+        <img src="Hadiya.jpg.jpeg" alt="Birthday person 3" class="photo">
+        <p class="caption">Here's to another year of adventures 🥳</p>
+    </div>
+
+</div>
+
+        <p class="message">
+            Wishing you a beautiful and wonderful birthday! 🎂
+            May your day be filled with happiness, laughter,
+            love, unforgettable memories and lots of beautiful moments. ❤️
+            <br><br>
+            May this new year of your life bring you closer to
+            your dreams and give you many reasons to smile. ✨
+            <br><br>
+            Enjoy your special day! 🎉🎈🎂
+        </p>
+
+        <p class="joke">
+    😂 Why don't you ever trust someone who tells you your age?<br>
+    Because it's a "number" of lies... but seriously, another year older 
+    means another year of being awesome. Now blow out those candles 
+    before the fire department shows up! 🎂🔥
+</p>
+
+<div class="gift-teaser">
+    <p class="gift-message">
+        🎁 And that's not all... a little surprise is on its way to you! 
+        Keep an eye out tomorrow — your gift will be arriving soon! 💝
+    </p>
+</div>
+
+        <button class="button" onclick="startMusic()">
+            🎵 Play Birthday Music
+        </button>
+
+        <button class="button" onclick="makeFireworks()">
+            🎆 Fireworks
+        </button>
+
+        <p class="signature">
+           💍 Made with ❤️ just for you 💍
+         <p>
+            <br>"By your lovely boyfriend Hamodi"<br>
+            </p>
+        </p>
+
+    </div>
+
+
+    <script>
+
+        /* =========================
+           BIRTHDAY MUSIC
+           ========================= */
+
+        let audioContext;
+        let musicPlaying = false;
+
+        function startMusic() {
+
+            if (musicPlaying) {
+                return;
+            }
+
+            musicPlaying = true;
+
+            audioContext = new (
+                window.AudioContext ||
+                window.webkitAudioContext
+            )();
+
+            const notes = [
+                261.63,
+                261.63,
+                293.66,
+                261.63,
+                349.23,
+                329.63,
+
+                261.63,
+                261.63,
+                293.66,
+                261.63,
+                392.00,
+                349.23
+            ];
+
+            let time = audioContext.currentTime;
+
+            notes.forEach((frequency, index) => {
+
+                const oscillator =
+                    audioContext.createOscillator();
+
+                const gain =
+                    audioContext.createGain();
+
+                oscillator.type = "sine";
+
+                oscillator.frequency.value = frequency;
+
+                oscillator.connect(gain);
+
+                gain.connect(audioContext.destination);
+
+                gain.gain.setValueAtTime(
+                    0.0001,
+                    time
+                );
+
+                gain.gain.exponentialRampToValueAtTime(
+                    0.2,
+                    time + 0.05
+                );
+
+                gain.gain.exponentialRampToValueAtTime(
+                    0.0001,
+                    time + 0.45
+                );
+
+                oscillator.start(time);
+
+                oscillator.stop(time + 0.5);
+
+                time += 0.5;
+
+            });
+
+            setTimeout(() => {
+                musicPlaying = false;
+            }, notes.length * 500);
+        }
+
+
+        /* =========================
+           FIREWORKS
+           ========================= */
+
+        function makeFireworks() {
+
+            for (let i = 0; i < 25; i++) {
+
+                const firework =
+                    document.createElement("div");
+
+                firework.className = "firework";
+
+                firework.style.left =
+                    Math.random() * 100 + "%";
+
+                firework.style.top =
+                    Math.random() * 70 + "%";
+
+                firework.style.background =
+                    "hsl(" +
+                    Math.random() * 360 +
+                    ", 100%, 70%)";
+
+                document.body.appendChild(firework);
+
+                setTimeout(() => {
+                    firework.remove();
+                }, 1000);
+            }
+        }
+
+
+        /* =========================
+           AUTOMATIC FIREWORKS
+           ========================= */
+
+        setInterval(() => {
+
+            if (Math.random() > 0.5) {
+                makeFireworks();
+            }
+
+        }, 4000);
+
+    </script>
+
+</body>
+</html>
